@@ -30,15 +30,16 @@ mv mylauncher-master mylauncher
 cat <<EOT>> .startrc
 #!/bin/bash
 
-LAUNCHER=mylauncher
-
-if [ -f "$homedir/\$LAUNCHER/.cpirc" ] && [ -z "\$SSH_CLIENT" ] && [ -z "\$SSH_TTY" ]; then
-    echo "Starting \$LAUNCHER"
-else
-    echo "Couldn't load \"\$LAUNCHER\", loading \"launcher\" instead"
-    LAUNCHER=launcher
+if [ -z "\$SSH_CLIENT" ] && [ -z "\$SSH_TTY" ]; then
+    LAUNCHER=mylauncher
+    if [ -f "/home/cpi/\$LAUNCHER/.cpirc" ]; then
+        echo "Starting \$LAUNCHER"
+    else
+        echo "Couldn't load \"\$LAUNCHER\", loading \"launcher\" instead"
+        LAUNCHER=launcher
+    fi
+    . "/home/cpi/\$LAUNCHER/.cpirc"
 fi
-. "$homedir/launcher/.cpirc"
 
 exit
 EOT
