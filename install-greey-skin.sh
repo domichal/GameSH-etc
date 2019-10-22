@@ -22,7 +22,7 @@ pwd="${PWD}"
 cd "$homedir/skins"
 
 wget https://github.com/domichal/GameSH-Theme-Greey/archive/master.zip && unzip master.zip && rm master.zip
-mv GameSH-Theme-Greey-master Greey
+mv "GameSH-Theme-Greey-master" Greey
 
 cd $pwd
 echo "Installation finished"
