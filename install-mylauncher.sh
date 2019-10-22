@@ -34,7 +34,7 @@ if [ -z "\$SSH_CLIENT" ] && [ -z "\$SSH_TTY" ]; then
     LAUNCHER=mylauncher
     if [ -f "/home/cpi/\$LAUNCHER/.cpirc" ]; then
         echo "Starting \$LAUNCHER"
-        . "/home/cpi/$LAUNCHER/.cpirc"
+        . "/home/cpi/\$LAUNCHER/.cpirc"
     else
         echo "Couldn't load \"\$LAUNCHER\", loading \"launcher\" instead"
         . "/home/cpi/launcher/.cpirc"
