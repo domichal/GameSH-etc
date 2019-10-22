@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#homedir="/home/cpi"
+homedir="/home/cpi"
 
 if [ ! -d $homedir ]; then
   echo "No homedir [$homedir] found, don't know what to do."
@@ -10,6 +10,14 @@ elif [ -f $homedir/.start ]; then
   return
 elif [ -d $homedir/mylauncher ]; then
   echo "$homedir/mylauncher folder already exists, rename or remove it first if you want to install fresh copy of mylauncher"
+  return
+fi
+
+whiptail --title "Confirm" --yesno "This script will install \"mylauncher\" in $homedir folder. Continue?" $ALERT_HEIGHT $WIDTH
+x=$?
+
+if ! [ $x -eq 0 ]; then
+  echo "Aborted"
   return
 fi
 
@@ -40,3 +48,5 @@ fi
 echo "Installation finished"
 
 cd $pwd
+rm -- "$0"
+exit 0
