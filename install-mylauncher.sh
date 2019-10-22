@@ -40,8 +40,6 @@ if [ -z "\$SSH_CLIENT" ] && [ -z "\$SSH_TTY" ]; then
     fi
     . "/home/cpi/\$LAUNCHER/.cpirc"
 fi
-
-exit
 EOT
 chmod 644 .startrc
 
