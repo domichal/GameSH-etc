@@ -16,9 +16,9 @@ fi
 whiptail --title "Confirm" --yesno "This script will install \"mylauncher\" in $homedir folder. Continue?" 12 40
 x=$?
 
-if ! [ $x -eq 0 ]; then
+if ! [ "$x" -eq 0 ]; then
   echo "Aborted"
-  return
+  exit
 fi
 
 pwd="${PWD}"
