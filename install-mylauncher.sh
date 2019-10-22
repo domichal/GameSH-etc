@@ -46,7 +46,7 @@ if [ "$(cat .bashrc | grep '\.startrc')" != "" ]; then
   echo "Start entry has already been added to $home/.bashrc"
 else
   cp -f .bashrc .bashrc.bak
-  sed -i "/^if \[ -f .*\.cpirc/i \if [ -f $homedir/.startrc ]; then\n    . $homedir/.startrc\nel" .bashrc || echo -e "Something went wrong when trying to modify $homedir/.bash\nPlease edit it manually, more info here: https://github.com/domichal/mylauncher/blob/dev/README.md#installation"
+  sed -i "/^if \[ -f .*\.cpirc/i \if [ -f $homedir/.startrc ]; then\n    . $homedir/.startrc\nfi\n" .bashrc || echo -e "Something went wrong when trying to modify $homedir/.bash\nPlease edit it manually, more info here: https://github.com/domichal/mylauncher/blob/dev/README.md#installation"
 fi
 echo "Installation finished"
 
