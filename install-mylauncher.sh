@@ -13,7 +13,7 @@ elif [ -d $homedir/mylauncher ]; then
   exit 1
 fi
 
-whiptail --title "Confirm" --yesno "This script will install \"mylauncher\" in $homedir/launcher folder. Continue?" 12 40
+whiptail --title "Confirm" --yesno "This script will install \"mylauncher\" in $homedir/mylauncher folder. Continue?" 12 40
 x=$?
 
 if ! [ "$x" -eq 0 ]; then
