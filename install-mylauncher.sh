@@ -35,7 +35,7 @@ LAUNCHER=mylauncher
 if [ -f "$homedir/\$LAUNCHER/.cpirc" ] && [ -z "\$SSH_CLIENT" ] && [ -z "\$SSH_TTY" ]; then
     echo "Starting \$LAUNCHER"
 else
-    Couldn't load "\$LAUNCHER", loading launcher instead    
+    echo "Couldn't load \"\$LAUNCHER\", loading launcher instead"
     LAUNCHER=launcher
 fi
 . "$homedir/launcher/.cpirc"
